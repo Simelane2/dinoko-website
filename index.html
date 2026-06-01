@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dinoko Automation Services and Repairs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Dinoko Automation</div>
+   <ul class="nav-links">
+  <li><a href="#services">Services</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#why-us">Why Us</a></li>
+  <li><a href="#training">Careers & Training</a></li>
+  <li><a href="#giving-back">Giving Back</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <!--<li><a href="store.html" style="color:#f0a500; font-weight:bold;">🛒 Store</a></li>-->
+</ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Dinoko Automation Services and Repairs</h1>
+      <p>Professional CCTV, Electric Fence, Alarm, Solar & Automation Solutions</p>
+      <a href="#contact" class="btn">Get Your FREE Site Visit</a>
+    </div>
+  </section>
+
+  <!-- FREE SITE VISIT BANNER -->
+  <div class="banner">
+    <p>⭐ We offer a <strong>FREE Site Visit</strong> — Installation, Repairs & Maintenance on all our services!</p>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <p class="section-subtitle">Click on any service to learn more</p>
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="showService('cctv', this)">CCTV</button>
+      <button class="tab-btn" onclick="showService('electric-fence', this)">Electric Fence</button>
+      <button class="tab-btn" onclick="showService('alarm', this)">Alarm Systems</button>
+      <button class="tab-btn" onclick="showService('solar', this)">Solar Systems</button>
+      <button class="tab-btn" onclick="showService('gate-motor', this)">Gate Motors</button>
+      <button class="tab-btn" onclick="showService('garage-motor', this)">Garage Motors</button>
+      <button class="tab-btn" onclick="showService('garage', this)">Garages</button>
+      <button class="tab-btn" onclick="showService('gates', this)">Gates</button>
+      <button class="tab-btn" onclick="showService('aircon', this)">Air Conditioning</button>
+    </div>
+
+    <div id="cctv" class="service-panel active">
+      <img src="images/cctv.jpeg" alt="CCTV Installation" />
+      <div class="service-info">
+        <h3>CCTV Installation</h3>
+        <p>Keep your property safe with our professional CCTV camera systems. We supply and install high-definition cameras for homes, businesses, and industrial sites.</p>
+        <ul>
+          <li>HD & 4K Camera Systems</li>
+          <li>Night Vision Cameras</li>
+          <li>Remote Viewing via Smartphone</li>
+          <li>DVR & NVR Installations</li>
+          <li>Indoor & Outdoor Cameras</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="electric-fence" class="service-panel">
+      <img src="images/electric.jpeg" alt="Electric Fence" />
+      <div class="service-info">
+        <h3>Electric Fence</h3>
+        <p>Secure your perimeter with our reliable electric fence solutions. We install energizers, wires, and complete fence systems for all property types.</p>
+        <ul>
+          <li>Energizer Installation & Repairs</li>
+          <li>Fence Zone Configuration</li>
+          <li>SABS-Compliant Installations</li>
+          <li>Integration with Alarm Systems</li>
+          <li>Regular Maintenance Plans</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="alarm" class="service-panel">
+      <img src="images/alarm.jpeg" alt="Alarm Systems" />
+      <div class="service-info">
+        <h3>Alarm Systems</h3>
+        <p>Protect your home or business with advanced alarm systems. We install motion detectors, panic buttons, and full alarm setups linked to armed response.</p>
+        <ul>
+          <li>Motion Sensor Installation</li>
+          <li>Panic Buttons & Remotes</li>
+          <li>Armed Response Integration</li>
+          <li>Pet-Immune Detectors</li>
+          <li>Alarm Repairs & Servicing</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="solar" class="service-panel">
+      <img src="images/solar.jpeg" alt="Solar System Installation" />
+      <div class="service-info">
+        <h3>Solar System Installation</h3>
+        <p>Cut your electricity costs and beat load-shedding with our solar solutions. We design and install systems tailored to your energy needs.</p>
+        <ul>
+          <li>Solar Panel Supply & Installation</li>
+          <li>Battery Backup Systems</li>
+          <li>Inverter Installation</li>
+          <li>Grid-Tied & Off-Grid Systems</li>
+          <li>System Monitoring & Maintenance</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="gate-motor" class="service-panel">
+      <img src="images/gate.jpeg" alt="Gate Motor" />
+      <div class="service-info">
+        <h3>Gate Motors (Grid Motors)</h3>
+        <p>We supply, install, and repair all major brands of sliding and swing gate motors — giving you secure, automated access to your property.</p>
+        <ul>
+          <li>Sliding Gate Motor Installation</li>
+          <li>Swing Gate Motor Installation</li>
+          <li>Remote & Intercom Integration</li>
+          <li>Motor Repairs & Part Replacements</li>
+          <li>All Major Brands Supported</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="garage-motor" class="service-panel">
+      <img src="images/garagem.jpeg" alt="Garage Motor" />
+      <div class="service-info">
+        <h3>Garage Door Motors</h3>
+        <p>Automate your garage door with a quality motor system. We install and repair garage door openers for all door types — roller, tilt, and sectional.</p>
+        <ul>
+          <li>Roller Door Motor Installation</li>
+          <li>Tilt Door Motor Installation</li>
+          <li>Sectional Door Motors</li>
+          <li>Remote Control Programming</li>
+          <li>Motor Repairs & Servicing</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="garage" class="service-panel">
+      <img src="images/garage.jpeg" alt="Garages" />
+      <div class="service-info">
+        <h3>Garages</h3>
+        <p>We supply and install quality garage structures for residential and commercial properties — built to last and designed to complement your home.</p>
+        <ul>
+          <li>Single & Double Garages</li>
+          <li>Steel & Automated Garage Structures</li>
+          <li>Custom Garage Builds</li>
+          <li>Garage Door Supply & Installation</li>
+          <li>Repairs & Maintenance</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="gates" class="service-panel">
+      <img src="images/gatem.jpeg" alt="Gates" />
+      <div class="service-info">
+        <h3>Gates</h3>
+        <p>We supply and install driveway and pedestrian gates for homes and businesses. Custom sizes and designs available to match your property style.</p>
+        <ul>
+          <li>Sliding & Swing Gates</li>
+          <li>Pedestrian Gates</li>
+          <li>Custom Steel Gate Fabrication</li>
+          <li>Gate Repairs & Welding</li>
+          <li>Automation-Ready Gates</li>
+        </ul>
+        <div class="service-tags">
+          <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+        </div>
+      </div>
+    </div>
+<div id="aircon" class="service-panel">
+  <img src="images/air.jpeg" alt="Air Conditioning" />
+  <div class="service-info">
+    <h3>Air Conditioning</h3>
+    <p>Stay comfortable year-round with our professional air conditioning installation and maintenance services for homes and businesses.</p>
+    <ul>
+      <li>Split Unit Installation</li>
+      <li>Ceiling Cassette Units</li>
+      <li>AC Repairs & Gas Refills</li>
+      <li>Filter Cleaning & Servicing</li>
+      <li>All Major Brands Supported</li>
+    </ul>
+    <div class="service-tags">
+      <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+<section id="gallery" class="gallery-section">
+  <h2>Our Work</h2>
+  <p class="section-subtitle">A look at some of our completed installations</p>
+
+  <div class="gallery-filter">
+    <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+    <button class="filter-btn" onclick="filterGallery('cctv', this)">CCTV</button>
+    <button class="filter-btn" onclick="filterGallery('fence', this)">Electric Fence</button>
+    <button class="filter-btn" onclick="filterGallery('solar', this)">Solar</button>
+    <button class="filter-btn" onclick="filterGallery('gate', this)">Gates & Motors</button>
+    <button class="filter-btn" onclick="filterGallery('alarm', this)">Alarms</button>
+    <button class="filter-btn" onclick="filterGallery('aircon', this)">Air Conditioning</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- ALARM -->
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm.jpeg" alt="Alarm System" />
+      <div class="gallery-overlay"><span>Alarm System</span></div>
+    </div>
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm1.jpeg" alt="Alarm Installation" />
+      <div class="gallery-overlay"><span>Alarm Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm2.jpeg" alt="Alarm Setup" />
+      <div class="gallery-overlay"><span>Alarm Setup</span></div>
+    </div>
+
+    <!-- CCTV -->
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv.jpeg" alt="CCTV Installation" />
+      <div class="gallery-overlay"><span>CCTV Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv1.jpeg" alt="CCTV Camera" />
+      <div class="gallery-overlay"><span>CCTV Camera</span></div>
+    </div>
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv2.jpeg" alt="CCTV Setup" />
+      <div class="gallery-overlay"><span>CCTV Setup</span></div>
+    </div>
+
+    <!-- ELECTRIC FENCE -->
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric.jpeg" alt="Electric Fence" />
+      <div class="gallery-overlay"><span>Electric Fence</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric1.jpeg" alt="Electric Fence Installation" />
+      <div class="gallery-overlay"><span>Electric Fence Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric2.jpeg" alt="Fence Wiring" />
+      <div class="gallery-overlay"><span>Fence Wiring</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric3.jpeg" alt="Fence Setup" />
+      <div class="gallery-overlay"><span>Fence Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric4.jpeg" alt="Electric Fence Work" />
+      <div class="gallery-overlay"><span>Electric Fence Work</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric5.jpeg" alt="Fence Installation" />
+      <div class="gallery-overlay"><span>Fence Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric6.jpeg" alt="Electric Fence Complete" />
+      <div class="gallery-overlay"><span>Electric Fence Complete</span></div>
+    </div>
+
+    <!-- GATES & MOTORS -->
+    <div class="gallery-item" data-category="gate">
+      <img src="images/garage.jpeg" alt="Garage" />
+      <div class="gallery-overlay"><span>Garage</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate.jpeg" alt="Gate" />
+      <div class="gallery-overlay"><span>Gate</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate1.jpeg" alt="Gate Installation" />
+      <div class="gallery-overlay"><span>Gate Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate2.jpeg" alt="Gate Setup" />
+      <div class="gallery-overlay"><span>Gate Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gatem.jpeg" alt="Gate Motor" />
+      <div class="gallery-overlay"><span>Gate Motor</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gatem1.jpeg" alt="Gate Motor Installation" />
+      <div class="gallery-overlay"><span>Gate Motor Installation</span></div>
+    </div>
+
+    <!-- SOLAR -->
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar.jpeg" alt="Solar Installation" />
+      <div class="gallery-overlay"><span>Solar Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar1.jpeg" alt="Solar Panels" />
+      <div class="gallery-overlay"><span>Solar Panels</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar2.jpeg" alt="Solar Setup" />
+      <div class="gallery-overlay"><span>Solar Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar3.jpeg" alt="Solar System" />
+      <div class="gallery-overlay"><span>Solar System</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar4.jpeg" alt="Solar Complete" />
+      <div class="gallery-overlay"><span>Solar Complete</span></div>
+    </div>
+
+    <!-- AIR CONDITIONING -->
+    <div class="gallery-item" data-category="aircon">
+      <img src="images/air.jpeg" alt="Air Conditioning Installation" />
+      <div class="gallery-overlay"><span>Air Conditioning</span></div>
+    </div>
+
+    <!-- GENERAL / ALL SERVICES PROMO -->
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/all.jpeg" alt="Dinoko Services" />
+      <div class="gallery-overlay"><span>Dinoko Services</span></div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-us" class="why-us">
+    <h2>Why Choose Dinoko?</h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="icon">✅</div>
+        <h4>FREE Site Visit</h4>
+        <p>We come to you at no charge to assess your property and give you the best solution.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🔧</div>
+        <h4>Installation</h4>
+        <p>Professional installation of all security and automation products we supply.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🛠️</div>
+        <h4>Repairs</h4>
+        <p>Fast, reliable repair services to get your systems back up and running quickly.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">📋</div>
+        <h4>Maintenance</h4>
+        <p>Regular maintenance plans to keep all your systems performing at their best.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🏠</div>
+        <h4>All Property Types</h4>
+        <p>We serve residential, commercial, and industrial clients across the region.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">⚡</div>
+        <h4>All-in-One Service</h4>
+        <p>From CCTV to solar — one company for all your security and automation needs.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">📜</div>
+        <h4>COC Provided</h4>
+        <p>We issue a Certificate of Compliance (COC) for all electrical and solar system installations.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">💬</div>
+        <h4>FREE Quote</h4>
+        <p>Get a detailed, no-obligation quote for any of our services — completely free of charge.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">📦</div>
+        <h4>Supply Only on Request</h4>
+        <p>Need equipment without installation? We supply products with no fitting fee on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS & TRAINING SECTION -->
+  <section id="training" class="training-section">
+    <h2>Careers & Training</h2>
+    <p class="section-subtitle">Build your career in security and automation — professional courses offered seasonally</p>
+
+    <div class="training-intro">
+      <p>At Dinoko Automation Services and Repairs, we believe in growing the next generation of skilled technicians. We offer hands-on, practical training courses in all our fields of expertise. Classes are seasonal — one course runs per month — and you must register per course individually.</p>
+    </div>
+
+    <div class="courses-grid">
+
+      <div class="course-card current">
+        <div class="course-badge">Current Course</div>
+        <div class="course-icon">📷</div>
+        <h3>CCTV & Camera Systems</h3>
+        <p class="course-duration">Duration: 1 Month</p>
+        <p>Learn how to install, configure, and maintain HD and 4K CCTV camera systems including DVR/NVR setups and remote viewing.</p>
+        <ul>
+          <li>Camera types & placement</li>
+          <li>DVR & NVR configuration</li>
+          <li>Network & remote access setup</li>
+          <li>Fault finding & maintenance</li>
+        </ul>
+        <div class="course-footer">
+          <span class="course-price">Price: Contact us for pricing</span>
+          <a href="#training-form" class="btn course-btn">Register Now</a>
+        </div>
+      </div>
+
+      <div class="course-card upcoming">
+        <div class="course-badge upcoming-badge">Next Course</div>
+        <div class="course-icon">🚪</div>
+        <h3>Access Control Systems</h3>
+        <p class="course-duration">Duration: 1 Month</p>
+        <p>Master gate motors, garage motors, intercom systems, and automated access control solutions used in residential and commercial properties.</p>
+        <ul>
+          <li>Gate & garage motor installation</li>
+          <li>Intercom & remote programming</li>
+          <li>Access card & biometric systems</li>
+          <li>Troubleshooting & repairs</li>
+        </ul>
+        <div class="course-footer">
+          <span class="course-price">Price: Contact us for pricing</span>
+          <a href="#training-form" class="btn course-btn">Pre-Register</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">⚡</div>
+        <h3>Electric Fence & Alarm Systems</h3>
+        <p class="course-duration">Duration: 1 Month</p>
+        <p>Learn the installation and maintenance of electric fence energizers, alarm systems, motion detectors, and panic systems.</p>
+        <ul>
+          <li>Energizer installation & zoning</li>
+          <li>Alarm panel programming</li>
+          <li>Motion sensor placement</li>
+          <li>SABS compliance standards</li>
+        </ul>
+        <div class="course-footer">
+          <span class="course-price">Price: Contact us for pricing</span>
+          <a href="#training-form" class="btn course-btn">Enquire</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">☀️</div>
+        <h3>Solar System Installation</h3>
+        <p class="course-duration">Duration: 1 Month</p>
+        <p>Get trained in solar panel installation, inverter setup, battery systems, and both grid-tied and off-grid configurations.</p>
+        <ul>
+          <li>Solar panel mounting & wiring</li>
+          <li>Inverter & battery installation</li>
+          <li>Grid-tied & off-grid systems</li>
+          <li>COC requirements for solar</li>
+        </ul>
+        <div class="course-footer">
+          <span class="course-price">Price: Contact us for pricing</span>
+          <a href="#training-form" class="btn course-btn">Enquire</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="training-note">
+      <p>📌 <strong>Please note:</strong> Classes are seasonal and run one at a time. You must register for each course individually. Contact us to find out which course is currently open for registration.</p>
+    </div>
+
+    <!-- TRAINING REGISTRATION FORM -->
+    <div class="training-form-wrapper" id="training-form">
+      <h3>Register for a Course</h3>
+      <p>Fill in your details below and we will get back to you to confirm your spot!</p>
+
+      <form action="https://formsubmit.co/dinokoautomations@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Training Registration - Dinoko" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.dinokoautomations.co.za/thankyou.html?type=training" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="full_name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" placeholder="e.g. 071 234 5678" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Your email address" />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Your age" min="16" max="65" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Course You Want to Register For *</label>
+            <select name="course" required>
+              <option value="">-- Select a Course --</option>
+              <option>CCTV & Camera Systems</option>
+              <option>Access Control Systems</option>
+              <option>Electric Fence & Alarm Systems</option>
+              <option>Solar System Installation</option>
+              <option>Air Conditioning Installation & Maintenance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Highest Level of Education</label>
+            <select name="education">
+              <option value="">-- Select --</option>
+              <option>Grade 10</option>
+              <option>Grade 11</option>
+              <option>Grade 12 / Matric</option>
+              <option>Certificate / Diploma</option>
+              <option>Degree</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Do you have any previous experience in this field?</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="experience" value="No experience" /> No experience
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="Some experience" /> Some experience
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="experience" value="Working in the field" /> Currently working in the field
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Why do you want to take this course?</label>
+          <textarea name="motivation" placeholder="Tell us a little about yourself and why you want to join..." rows="4"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+          <label>How did you hear about us?</label>
+          <select name="referral">
+            <option value="">-- Select --</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>WhatsApp</option>
+            <option>TikTok</option>
+            <option>Word of mouth</option>
+            <option>Google Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn training-submit-btn">Submit Registration</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- GIVING BACK SECTION -->
+  <section id="giving-back" class="giving-back-section">
+    <h2>Giving Back to the Community</h2>
+    <p class="section-subtitle">At Dinoko, we believe success means lifting others as we rise</p>
+
+    <div class="giving-grid">
+      <div class="giving-card">
+        <div class="giving-icon">🎓</div>
+        <h3>Skills Development</h3>
+        <p>We offer subsidised and sometimes free training opportunities to unemployed youth in our community, giving them the skills to build a career in the security and automation industry.</p>
+      </div>
+      <div class="giving-card">
+        <div class="giving-icon">🏘️</div>
+        <h3>Community Safety</h3>
+        <p>We partner with community organisations to help improve safety infrastructure in underprivileged areas — because everyone deserves to feel safe at home.</p>
+      </div>
+      <div class="giving-card">
+        <div class="giving-icon">🤝</div>
+        <h3>Local Employment</h3>
+        <p>We prioritise hiring locally trained technicians from the communities we serve, creating sustainable employment and keeping skills within the community.</p>
+      </div>
+      <div class="giving-card">
+        <div class="giving-icon">💡</div>
+        <h3>Solar Access Initiative</h3>
+        <p>We support initiatives that bring affordable solar energy solutions to low-income households, reducing electricity costs and improving quality of life.</p>
+      </div>
+    </div>
+
+    <div class="giving-cta">
+      <h3>Want to get involved or nominate someone for our training programme?</h3>
+      <p>Reach out to us and let's make a difference together.</p>
+      <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="section-subtitle">Everything you need to know about our services</p>
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you offer a free site visit? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We offer a completely free site visit to assess your property and recommend the best solution. There is no obligation to proceed after the visit.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What areas do you service? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>We offer our services nationwide across South Africa. Contact us to confirm availability in your specific area.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you provide a Certificate of Compliance (COC)? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. We issue a Certificate of Compliance for all electrical and solar system installations as required by law in South Africa.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I get just a quote without committing to anything? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. Our quotes are 100% free and come with no obligation. We will assess your needs and provide a detailed quote at no charge.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you only install, or do you also do repairs and maintenance? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>We do all three — installation, repairs, and ongoing maintenance — for every service we offer including CCTV, electric fence, alarms, solar, gate motors, garage motors, garages, and gates.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I buy equipment from you without installation? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. We offer supply-only on request with no fitting fee. Simply contact us and let us know what you need.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I register for a training course? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Scroll up to our Careers & Training section and fill in the registration form. We run one course per month and you register for each course individually. We will contact you to confirm your spot.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What payment methods do you accept? <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>We accept EFT bank transfers and cash. Contact us directly to discuss payment arrangements for larger projects.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Ready for your FREE site visit or quote? Get in touch today!</p>
+
+    <div class="contact-details">
+      <p>📞 <strong>Phone:</strong> 0101003645</p>
+      <p>📧 <strong>Email:</strong> dinokoautomations@gmail.com</p>
+      <p>📍 <strong>Area:</strong> We offer our services nationwide</p>
+      <p>
+        <a href="https://wa.me/27737870295" target="_blank" class="whatsapp-btn">
+          💬 WhatsApp Us
+        </a>
+      </p>
+
+      <!-- BUSINESS HOURS -->
+      <div class="business-hours">
+        <h3>🕐 Business Hours</h3>
+        <table class="hours-table">
+          <tr>
+            <td>Monday – Friday</td>
+            <td><span class="open">07:00 – 17:00</span></td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td><span class="open">08:00 – 14:00</span></td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td><span class="closed">Closed</span></td>
+          </tr>
+          <tr>
+            <td>Public Holidays</td>
+            <td><span class="limited">By Appointment Only</span></td>
+          </tr>
+        </table>
+        <p class="emergency-note">🚨 <strong>Emergency call-outs available after hours — WhatsApp us!</strong></p>
+      </div>
+    </div>
+
+    <!-- INQUIRY FORM -->
+    <div class="inquiry-form">
+      <h3>Send Us an Inquiry</h3>
+      <p>Fill in your details below and we will call you back!</p>
+      <form action="https://formsubmit.co/dinokoautomations@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="New Inquiry from Dinoko Website" />
+  <input type="hidden" name="_captcha" value="false" />
+<input type="hidden" name="_next" value="https://www.dinokoautomations.co.za/thankyou.html?type=inquiry" />
+  
+        <input type="text" name="name" placeholder="Your Full Name" required />
+        <input type="tel" name="phone" placeholder="Your Phone Number" required />
+        <select name="service">
+          <option value="">-- Select a Service --</option>
+          <option>CCTV Installation</option>
+          <option>Electric Fence</option>
+          <option>Alarm Systems</option>
+          <option>Solar System Installation</option>
+          <option>Gate Motors</option>
+          <option>Garage Motors</option>
+          <option>Garages</option>
+          <option>Gates</option>
+          <option>Air Conditioning</option>
+          <option>Other</option>
+        </select>
+        <textarea name="inquiry" placeholder="Describe your inquiry or request..." rows="4" required></textarea>
+        <button type="submit" class="btn">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Follow us on social media</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/dinokoautomation/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/Dinokoautomation" target="_blank">Instagram</a>
+      <a href="https://wa.me/27737870295" target="_blank">WhatsApp</a>
+      <a href="https://tiktok.com/@dinoko22" target="_blank">TikTok</a>
+    </div>
+    <p class="footer-copy">&copy; 2015 Dinoko Automation Services and Repairs. All rights reserved.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/27737870295" target="_blank" class="float-whatsapp" title="Chat with us on WhatsApp">
+    💬
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="back-to-top" id="backToTop">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

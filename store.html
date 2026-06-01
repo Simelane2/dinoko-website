@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store – Dinoko Automation Services and Repairs</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── STORE PAGE STYLES ── */
+    .store-hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('images/cctv.png') center/cover no-repeat;
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+    .store-hero h1 { font-size: 32px; margin-bottom: 10px; }
+    .store-hero p  { font-size: 16px; color: #ddd; }
+
+    .store-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* CART BAR */
+    .cart-bar {
+      position: sticky;
+      top: 0;
+      background: #1a1a2e;
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 200;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cart-bar span { font-size: 15px; }
+    .cart-count { color: #f0a500; font-weight: bold; }
+    .cart-actions { display: flex; gap: 10px; }
+    .cart-actions button {
+      background: #f0a500;
+      color: #1a1a2e;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .cart-actions button.secondary {
+      background: transparent;
+      color: #f0a500;
+      border: 1px solid #f0a500;
+    }
+    .cart-actions button:hover { opacity: 0.85; }
+
+    /* CATEGORY FILTER */
+    .store-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .store-filter-btn {
+      background: #eee;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      color: #444;
+      transition: all 0.2s;
+    }
+    .store-filter-btn:hover { background: #1a1a2e; color: white; }
+    .store-filter-btn.active { background: #1a1a2e; color: #f0a500; }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card.hidden { display: none; }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-category {
+      font-size: 11px;
+      font-weight: bold;
+      color: #f0a500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .product-body h3 {
+      font-size: 15px;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+    .product-body p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .product-price {
+      font-size: 17px;
+      font-weight: bold;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+    .product-price.contact-price {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .product-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-cart {
+      flex: 1;
+      background: #1a1a2e;
+      color: #f0a500;
+      border: none;
+      padding: 9px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .btn-cart:hover { background: #2e2e50; }
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .btn-wa:hover { background: #1ebe5d; }
+
+    /* CART MODAL */
+    .cart-modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 500;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    .cart-modal-bg.open { display: flex; }
+    .cart-modal {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    }
+    .cart-modal h2 {
+      font-size: 20px;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-modal h2 button {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #888;
+    }
+    .cart-empty {
+      text-align: center;
+      color: #aaa;
+      padding: 40px 0;
+      font-size: 15px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 10px;
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-info strong { font-size: 14px; color: #1a1a2e; display: block; margin-bottom: 4px; }
+    .cart-item-info span { font-size: 12px; color: #888; }
+    .cart-item-price { font-size: 14px; font-weight: bold; color: #1a1a2e; white-space: nowrap; }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .cart-item-remove:hover { color: #e74c3c; }
+    .cart-total {
+      margin-top: 20px;
+      padding: 14px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #1a1a2e;
+      display: flex;
+      justify-content: space-between;
+    }
+    .cart-total strong { font-size: 17px; }
+    .cart-note {
+      font-size: 12px;
+      color: #aaa;
+      margin: 10px 0 16px;
+      text-align: center;
+    }
+    .cart-checkout-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .cart-checkout-btns a,
+    .cart-checkout-btns button {
+      width: 100%;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      display: block;
+    }
+    .btn-wa-checkout {
+      background: #25D366;
+      color: white;
+    }
+    .btn-wa-checkout:hover { background: #1ebe5d; }
+    .btn-inquiry-checkout {
+      background: #1a1a2e;
+      color: #f0a500;
+    }
+    .btn-inquiry-checkout:hover { background: #2e2e50; }
+
+    /* INQUIRY MODAL */
+    .inquiry-modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 600;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .inquiry-modal-bg.open { display: flex; }
+    .inquiry-modal {
+      background: white;
+      border-radius: 14px;
+      padding: 30px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .inquiry-modal h2 {
+      font-size: 20px;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .inquiry-modal h2 button {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #888;
+    }
+    .inquiry-modal p { font-size: 13px; color: #888; margin-bottom: 20px; }
+    .inquiry-modal input,
+    .inquiry-modal textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .inquiry-modal input:focus,
+    .inquiry-modal textarea:focus {
+      outline: none;
+      border-color: #f0a500;
+    }
+    .inquiry-modal button[type="submit"] {
+      width: 100%;
+      background: #f0a500;
+      color: #1a1a2e;
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .inquiry-modal button[type="submit"]:hover { background: #d4920a; }
+    .order-summary-box {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.8;
+    }
+    .order-summary-box strong { color: #1a1a2e; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .store-hero h1 { font-size: 22px; }
+      .cart-modal { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Dinoko Automation</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="store.html" style="color:#f0a500;">Store</a></li>
+    </ul>
+  </nav>
+
+  <!-- STORE HERO -->
+  <div class="store-hero">
+    <h1>🛒 Dinoko Online Store</h1>
+    <p>Browse our products — order via WhatsApp or submit an inquiry and we will get back to you</p>
+  </div>
+
+  <!-- CART BAR -->
+  <div class="cart-bar">
+    <span>🛒 Cart: <span class="cart-count" id="cartCount">0 items</span></span>
+    <div class="cart-actions">
+      <button class="secondary" onclick="openCart()">View Cart</button>
+      <button onclick="openCart()">Checkout</button>
+    </div>
+  </div>
+
+  <div class="store-wrapper">
+
+    <!-- CATEGORY FILTER -->
+    <div class="store-filter">
+      <button class="store-filter-btn active" onclick="filterStore('all', this)">All Products</button>
+      <button class="store-filter-btn" onclick="filterStore('battery', this)">Batteries & Power</button>
+      <button class="store-filter-btn" onclick="filterStore('remote', this)">Remotes & Controllers</button>
+      <button class="store-filter-btn" onclick="filterStore('fence', this)">Electric Fence</button>
+      <button class="store-filter-btn" onclick="filterStore('solar', this)">Solar Equipment</button>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid" id="productGrid">
+
+      <!-- BATTERIES & POWER -->
+      <div class="product-card" data-category="battery">
+        <div class="product-img">🔋</div>
+        <div class="product-body">
+          <p class="product-category">Batteries & Power</p>
+          <h3>12V 7Ah Sealed Lead Acid Battery</h3>
+          <p>Reliable sealed lead acid battery suitable for alarm panels, gate motors, and backup power systems.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('12V 7Ah Sealed Lead Acid Battery', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%2012V%207Ah%20Battery.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="battery">
+        <div class="product-img">🔋</div>
+        <div class="product-body">
+          <p class="product-category">Batteries & Power</p>
+          <h3>12V 18Ah Sealed Lead Acid Battery</h3>
+          <p>Heavy-duty 12V battery ideal for larger gate motors, solar backup systems, and UPS units.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('12V 18Ah Sealed Lead Acid Battery', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%2012V%2018Ah%20Battery.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="battery">
+        <div class="product-img">⚡</div>
+        <div class="product-body">
+          <p class="product-category">Batteries & Power</p>
+          <h3>12V Power Supply Unit (PSU)</h3>
+          <p>Plug-in 12V power supply unit for powering CCTV cameras, alarm panels, and access control equipment.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('12V Power Supply Unit (PSU)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%2012V%20PSU.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- REMOTES & CONTROLLERS -->
+      <div class="product-card" data-category="remote">
+        <div class="product-img">📡</div>
+        <div class="product-body">
+          <p class="product-category">Remotes & Controllers</p>
+          <h3>Single Channel Gate Remote (433MHz)</h3>
+          <p>Universal single-channel remote compatible with most sliding and swing gate motor brands operating at 433MHz.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Single Channel Gate Remote (433MHz)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Single%20Channel%20Gate%20Remote.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="remote">
+        <div class="product-img">📡</div>
+        <div class="product-body">
+          <p class="product-category">Remotes & Controllers</p>
+          <h3>Dual Channel Gate Remote (433MHz)</h3>
+          <p>Two-channel remote allowing you to control two separate gates or a gate and a garage door with one remote.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Dual Channel Gate Remote (433MHz)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Dual%20Channel%20Gate%20Remote.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="remote">
+        <div class="product-img">🎮</div>
+        <div class="product-body">
+          <p class="product-category">Remotes & Controllers</p>
+          <h3>Garage Door Remote Control</h3>
+          <p>Replacement remote for roller, tilt, and sectional garage door motors. Compatible with major South African brands.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Garage Door Remote Control', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Garage%20Door%20Remote.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="remote">
+        <div class="product-img">🔑</div>
+        <div class="product-body">
+          <p class="product-category">Remotes & Controllers</p>
+          <h3>Alarm Remote / Panic Button</h3>
+          <p>Wireless panic button and alarm remote for arming, disarming, and sending emergency panic signals to your alarm panel.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Alarm Remote / Panic Button', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Alarm%20Remote%20Panic%20Button.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ELECTRIC FENCE EQUIPMENT -->
+      <div class="product-card" data-category="fence">
+        <div class="product-img">⚡</div>
+        <div class="product-body">
+          <p class="product-category">Electric Fence Equipment</p>
+          <h3>Electric Fence Energizer (2J)</h3>
+          <p>2 Joule electric fence energizer suitable for residential properties. Powers up to 5km of fence wire with alarm output.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Electric Fence Energizer (2J)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Electric%20Fence%20Energizer%202J.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fence">
+        <div class="product-img">⚡</div>
+        <div class="product-body">
+          <p class="product-category">Electric Fence Equipment</p>
+          <h3>Electric Fence Energizer (5J)</h3>
+          <p>5 Joule high-power energizer for larger properties and commercial perimeter fencing. Includes alarm zone monitoring.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Electric Fence Energizer (5J)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Electric%20Fence%20Energizer%205J.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fence">
+        <div class="product-img">🧱</div>
+        <div class="product-body">
+          <p class="product-category">Electric Fence Equipment</p>
+          <h3>Electric Fence Insulators (Pack of 50)</h3>
+          <p>UV-resistant plastic insulators for mounting electric fence wire to walls, poles, and brackets. Pack of 50 units.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Electric Fence Insulators (Pack of 50)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Electric%20Fence%20Insulators.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="fence">
+        <div class="product-img">🔌</div>
+        <div class="product-body">
+          <p class="product-category">Electric Fence Equipment</p>
+          <h3>Electric Fence Warning Signs (Pack of 10)</h3>
+          <p>SABS-compliant electric fence warning signs as required by South African law. Pack of 10 signs.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('Electric Fence Warning Signs (Pack of 10)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20Electric%20Fence%20Warning%20Signs.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLAR EQUIPMENT -->
+      <div class="product-card" data-category="solar">
+        <div class="product-img">☀️</div>
+        <div class="product-body">
+          <p class="product-category">Solar Equipment</p>
+          <h3>100W Mono Solar Panel</h3>
+          <p>High-efficiency 100W monocrystalline solar panel for small off-grid systems, gate motors, and backup power setups.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('100W Mono Solar Panel', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20100W%20Solar%20Panel.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="solar">
+        <div class="product-img">☀️</div>
+        <div class="product-body">
+          <p class="product-category">Solar Equipment</p>
+          <h3>450W Mono Solar Panel</h3>
+          <p>Large format 450W monocrystalline panel for full home or business solar systems. High efficiency in all weather conditions.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('450W Mono Solar Panel', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20450W%20Solar%20Panel.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="solar">
+        <div class="product-img">🔌</div>
+        <div class="product-body">
+          <p class="product-category">Solar Equipment</p>
+          <h3>3kVA Hybrid Inverter</h3>
+          <p>3kVA hybrid inverter with built-in MPPT solar charge controller. Supports grid-tied, off-grid, and backup modes.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('3kVA Hybrid Inverter', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%203kVA%20Hybrid%20Inverter.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="solar">
+        <div class="product-img">🔋</div>
+        <div class="product-body">
+          <p class="product-category">Solar Equipment</p>
+          <h3>51.2V 100Ah Lithium Battery (LiFePO4)</h3>
+          <p>Long-life lithium iron phosphate battery for solar energy storage. Safe, lightweight, and over 4000 charge cycles.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('51.2V 100Ah LiFePO4 Battery', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20LiFePO4%20Battery.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="solar">
+        <div class="product-img">☀️</div>
+        <div class="product-body">
+          <p class="product-category">Solar Equipment</p>
+          <h3>MPPT Solar Charge Controller (40A)</h3>
+          <p>40A MPPT charge controller for efficient solar panel to battery charging. Suitable for 12V and 24V battery systems.</p>
+          <p class="product-price contact-price">Contact us for pricing</p>
+          <div class="product-btns">
+            <button class="btn-cart" onclick="addToCart('MPPT Solar Charge Controller (40A)', 'Contact us for pricing')">+ Add to Cart</button>
+            <a class="btn-wa" href="https://wa.me/27737870295?text=Hi%20Dinoko!%20I%20am%20interested%20in%20the%20MPPT%20Charge%20Controller.%20Please%20send%20me%20more%20info." target="_blank">💬</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-modal-bg" id="cartModalBg" onclick="closeCartOnBg(event)">
+    <div class="cart-modal" id="cartModal">
+      <h2>Your Cart <button onclick="closeCart()">✕</button></h2>
+      <div id="cartItems">
+        <p class="cart-empty">Your cart is empty. Add some products!</p>
+      </div>
+      <div id="cartFooter" style="display:none;">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cartTotal">POA – Contact us</strong>
+        </div>
+        <p class="cart-note">Prices will be confirmed when we contact you.</p>
+        <div class="cart-checkout-btns">
+          <a id="waCheckoutBtn" href="#" target="_blank" class="btn-wa-checkout">💬 Order via WhatsApp</a>
+          <button class="btn-inquiry-checkout" onclick="openInquiry()">📋 Submit Inquiry Form</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INQUIRY MODAL -->
+  <div class="inquiry-modal-bg" id="inquiryModalBg" onclick="closeInquiryOnBg(event)">
+    <div class="inquiry-modal">
+      <h2>Order Inquiry <button onclick="closeInquiry()">✕</button></h2>
+      <p>Fill in your details and we will confirm pricing and availability and get back to you.</p>
+      <div class="order-summary-box" id="orderSummaryBox"></div>
+      <form action="https://formsubmit.co/dinokoautomations@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Store Order Inquiry – Dinoko" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="thankyou.html" />
+        <input type="hidden" name="order_items" id="orderItemsInput" />
+        <input type="text" name="full_name" placeholder="Your Full Name *" required />
+        <input type="tel" name="phone" placeholder="Your Phone Number *" required />
+        <input type="email" name="email" placeholder="Your Email Address" />
+        <textarea name="notes" placeholder="Any special requests or questions about your order..." rows="3"></textarea>
+        <button type="submit">Submit Order Inquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/27737870295" target="_blank" class="float-whatsapp" title="Chat with us on WhatsApp">💬</a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Follow us on social media</p>
+    <div class="social-links">
+      <a href="https://facebook.com/YourPageName" target="_blank">Facebook</a>
+      <a href="https://instagram.com/YourHandle" target="_blank">Instagram</a>
+      <a href="https://wa.me/27737870295" target="_blank">WhatsApp</a>
+      <a href="https://tiktok.com/@dinoko22" target="_blank">TikTok</a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Dinoko Automation Services and Repairs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* ── CART STATE ── */
+    var cart = [];
+
+    function addToCart(name, price) {
+      var existing = cart.find(function(i){ return i.name === name; });
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name: name, price: price, qty: 1 });
+      }
+      updateCartCount();
+      showAddedFeedback();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartCount();
+      renderCartItems();
+    }
+
+    function updateCartCount() {
+      var total = cart.reduce(function(sum, i){ return sum + i.qty; }, 0);
+      document.getElementById('cartCount').textContent = total + (total === 1 ? ' item' : ' items');
+    }
+
+    function showAddedFeedback() {
+      var bar = document.querySelector('.cart-bar');
+      bar.style.background = '#1a5c2e';
+      setTimeout(function(){ bar.style.background = '#1a1a2e'; }, 600);
+    }
+
+    /* ── CART MODAL ── */
+    function openCart() {
+      renderCartItems();
+      document.getElementById('cartModalBg').classList.add('open');
+    }
+
+    function closeCart() {
+      document.getElementById('cartModalBg').classList.remove('open');
+    }
+
+    function closeCartOnBg(e) {
+      if (e.target === document.getElementById('cartModalBg')) closeCart();
+    }
+
+    function renderCartItems() {
+      var container = document.getElementById('cartItems');
+      var footer = document.getElementById('cartFooter');
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="cart-empty">Your cart is empty. Add some products!</p>';
+        footer.style.display = 'none';
+        return;
+      }
+      var html = '';
+      cart.forEach(function(item, i) {
+        html += '<div class="cart-item">' +
+          '<div class="cart-item-info">' +
+          '<strong>' + item.name + '</strong>' +
+          '<span>Qty: ' + item.qty + '</span>' +
+          '</div>' +
+          '<span class="cart-item-price">POA</span>' +
+          '<button class="cart-item-remove" onclick="removeFromCart(' + i + ')">✕</button>' +
+          '</div>';
+      });
+      container.innerHTML = html;
+      footer.style.display = 'block';
+      buildWhatsAppLink();
+    }
+
+    function buildWhatsAppLink() {
+      var msg = 'Hi Dinoko! I would like to order the following items:%0A%0A';
+      cart.forEach(function(item) {
+        msg += '• ' + item.name + ' (x' + item.qty + ')%0A';
+      });
+      msg += '%0APlease send me pricing and availability. Thank you!';
+      document.getElementById('waCheckoutBtn').href = 'https://wa.me/27737870295?text=' + msg;
+    }
+
+    /* ── INQUIRY MODAL ── */
+    function openInquiry() {
+      closeCart();
+      var summary = '<strong>Order Summary:</strong><br>';
+      cart.forEach(function(item) {
+        summary += '• ' + item.name + ' (x' + item.qty + ')<br>';
+      });
+      document.getElementById('orderSummaryBox').innerHTML = summary;
+      var itemsList = cart.map(function(i){ return i.name + ' x' + i.qty; }).join(', ');
+      document.getElementById('orderItemsInput').value = itemsList;
+      document.getElementById('inquiryModalBg').classList.add('open');
+    }
+
+    function closeInquiry() {
+      document.getElementById('inquiryModalBg').classList.remove('open');
+    }
+
+    function closeInquiryOnBg(e) {
+      if (e.target === document.getElementById('inquiryModalBg')) closeInquiry();
+    }
+
+    /* ── STORE FILTER ── */
+    function filterStore(category, element) {
+      document.querySelectorAll('.store-filter-btn').forEach(function(btn){
+        btn.classList.remove('active');
+      });
+      element.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(function(card){
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

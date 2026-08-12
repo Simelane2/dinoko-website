@@ -5,69 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dinoko Automation Services and Repairs</title>
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    .projects-section, .documents-section { padding: 70px 5%; }
-    .projects-section { background: #f7f9fc; }
-    .projects-grid, .documents-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      max-width: 1200px;
-      margin: 35px auto 0;
-    }
-    .project-card, .document-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 8px 28px rgba(0,0,0,.08);
-    }
-    .project-card { border-left: 4px solid #0b63ce; }
-    .project-card h3, .document-card h3 { margin: 10px 0; }
-    .project-card p, .document-card p { line-height: 1.65; }
-    .project-category {
-      display: inline-block;
-      font-size: .8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      opacity: .75;
-    }
-    .document-card {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      text-decoration: none;
-      color: inherit;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .document-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
-    .document-icon { font-size: 2rem; }
-    .download-label { display: inline-block; margin-top: 10px; font-weight: 700; }
-    .documents-note { max-width: 1000px; margin: 28px auto 0; text-align: center; opacity: .8; }
-    @media (max-width: 700px) {
-      .projects-section, .documents-section { padding: 50px 5%; }
-      .document-card { padding: 20px; }
-    }
-  </style>
-
 </head>
 <body>
 
   <!-- NAVIGATION -->
   <nav>
     <div class="logo">Dinoko Automation</div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#projects">Major Projects</a></li>
-      <li><a href="#documents">Documents</a></li>
-      <li><a href="#why-us">Why Us</a></li>
-      <li><a href="#training">Careers & Training</a></li>
-      <li><a href="#giving-back">Giving Back</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+   <ul class="nav-links">
+  <li><a href="#services">Services</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#why-us">Why Us</a></li>
+  <li><a href="#training">Careers & Training</a></li>
+  <li><a href="#giving-back">Giving Back</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <!--<li><a href="store.html" style="color:#f0a500; font-weight:bold;">🛒 Store</a></li>-->
+</ul>
   </nav>
 
   <!-- HERO SECTION -->
@@ -98,10 +51,11 @@
       <button class="tab-btn" onclick="showService('garage-motor', this)">Garage Motors</button>
       <button class="tab-btn" onclick="showService('garage', this)">Garages</button>
       <button class="tab-btn" onclick="showService('gates', this)">Gates</button>
+      <button class="tab-btn" onclick="showService('aircon', this)">Air Conditioning</button>
     </div>
 
     <div id="cctv" class="service-panel active">
-      <img src="images/cctv.png" alt="CCTV Installation" />
+      <img src="images/cctv.jpeg" alt="CCTV Installation" />
       <div class="service-info">
         <h3>CCTV Installation</h3>
         <p>Keep your property safe with our professional CCTV camera systems. We supply and install high-definition cameras for homes, businesses, and industrial sites.</p>
@@ -119,7 +73,7 @@
     </div>
 
     <div id="electric-fence" class="service-panel">
-      <img src="images/electric.png" alt="Electric Fence" />
+      <img src="images/electric.jpeg" alt="Electric Fence" />
       <div class="service-info">
         <h3>Electric Fence</h3>
         <p>Secure your perimeter with our reliable electric fence solutions. We install energizers, wires, and complete fence systems for all property types.</p>
@@ -137,7 +91,7 @@
     </div>
 
     <div id="alarm" class="service-panel">
-      <img src="images/alarm.png" alt="Alarm Systems" />
+      <img src="images/alarm.jpeg" alt="Alarm Systems" />
       <div class="service-info">
         <h3>Alarm Systems</h3>
         <p>Protect your home or business with advanced alarm systems. We install motion detectors, panic buttons, and full alarm setups linked to armed response.</p>
@@ -155,7 +109,7 @@
     </div>
 
     <div id="solar" class="service-panel">
-      <img src="images/solar.png" alt="Solar System Installation" />
+      <img src="images/solar.jpeg" alt="Solar System Installation" />
       <div class="service-info">
         <h3>Solar System Installation</h3>
         <p>Cut your electricity costs and beat load-shedding with our solar solutions. We design and install systems tailored to your energy needs.</p>
@@ -173,7 +127,7 @@
     </div>
 
     <div id="gate-motor" class="service-panel">
-      <img src="images/gatemotor.png" alt="Gate Motor" />
+      <img src="images/gate.jpeg" alt="Gate Motor" />
       <div class="service-info">
         <h3>Gate Motors (Grid Motors)</h3>
         <p>We supply, install, and repair all major brands of sliding and swing gate motors — giving you secure, automated access to your property.</p>
@@ -191,7 +145,7 @@
     </div>
 
     <div id="garage-motor" class="service-panel">
-      <img src="images/garagemotor.png" alt="Garage Motor" />
+      <img src="images/garagem.jpeg" alt="Garage Motor" />
       <div class="service-info">
         <h3>Garage Door Motors</h3>
         <p>Automate your garage door with a quality motor system. We install and repair garage door openers for all door types — roller, tilt, and sectional.</p>
@@ -209,7 +163,7 @@
     </div>
 
     <div id="garage" class="service-panel">
-      <img src="images/garage.png" alt="Garages" />
+      <img src="images/garage.jpeg" alt="Garages" />
       <div class="service-info">
         <h3>Garages</h3>
         <p>We supply and install quality garage structures for residential and commercial properties — built to last and designed to complement your home.</p>
@@ -227,7 +181,7 @@
     </div>
 
     <div id="gates" class="service-panel">
-      <img src="images/gate.png" alt="Gates" />
+      <img src="images/gatem.jpeg" alt="Gates" />
       <div class="service-info">
         <h3>Gates</h3>
         <p>We supply and install driveway and pedestrian gates for homes and businesses. Custom sizes and designs available to match your property style.</p>
@@ -243,164 +197,162 @@
         </div>
       </div>
     </div>
-
+<div id="aircon" class="service-panel">
+  <img src="images/air.jpeg" alt="Air Conditioning" />
+  <div class="service-info">
+    <h3>Air Conditioning</h3>
+    <p>Stay comfortable year-round with our professional air conditioning installation and maintenance services for homes and businesses.</p>
+    <ul>
+      <li>Split Unit Installation</li>
+      <li>Ceiling Cassette Units</li>
+      <li>AC Repairs & Gas Refills</li>
+      <li>Filter Cleaning & Servicing</li>
+      <li>All Major Brands Supported</li>
+    </ul>
+    <div class="service-tags">
+      <span>Installation</span><span>Repairs</span><span>Maintenance</span>
+    </div>
+  </div>
+</div>
   </section>
 
   <!-- GALLERY SECTION -->
-  <section id="gallery" class="gallery-section">
-    <h2>Our Work</h2>
-    <p class="section-subtitle">A look at some of our completed installations</p>
+<section id="gallery" class="gallery-section">
+  <h2>Our Work</h2>
+  <p class="section-subtitle">A look at some of our completed installations</p>
 
-    <div class="gallery-filter">
-      <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
-      <button class="filter-btn" onclick="filterGallery('cctv', this)">CCTV</button>
-      <button class="filter-btn" onclick="filterGallery('fence', this)">Electric Fence</button>
-      <button class="filter-btn" onclick="filterGallery('solar', this)">Solar</button>
-      <button class="filter-btn" onclick="filterGallery('gate', this)">Gates & Motors</button>
-      <button class="filter-btn" onclick="filterGallery('alarm', this)">Alarms</button>
+  <div class="gallery-filter">
+    <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+    <button class="filter-btn" onclick="filterGallery('cctv', this)">CCTV</button>
+    <button class="filter-btn" onclick="filterGallery('fence', this)">Electric Fence</button>
+    <button class="filter-btn" onclick="filterGallery('solar', this)">Solar</button>
+    <button class="filter-btn" onclick="filterGallery('gate', this)">Gates & Motors</button>
+    <button class="filter-btn" onclick="filterGallery('alarm', this)">Alarms</button>
+    <button class="filter-btn" onclick="filterGallery('aircon', this)">Air Conditioning</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- ALARM -->
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm.jpeg" alt="Alarm System" />
+      <div class="gallery-overlay"><span>Alarm System</span></div>
+    </div>
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm1.jpeg" alt="Alarm Installation" />
+      <div class="gallery-overlay"><span>Alarm Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="alarm">
+      <img src="images/alarm2.jpeg" alt="Alarm Setup" />
+      <div class="gallery-overlay"><span>Alarm Setup</span></div>
     </div>
 
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item" data-category="cctv">
-        <img src="images/cctv.png" alt="CCTV Installation" />
-        <div class="gallery-overlay"><span>CCTV Installation</span></div>
-      </div>
-      <div class="gallery-item" data-category="fence">
-        <img src="images/electric.png" alt="Electric Fence" />
-        <div class="gallery-overlay"><span>Electric Fence</span></div>
-      </div>
-      <div class="gallery-item" data-category="alarm">
-        <img src="images/alarm.png" alt="Alarm System" />
-        <div class="gallery-overlay"><span>Alarm System</span></div>
-      </div>
-      <div class="gallery-item" data-category="solar">
-        <img src="images/solar.png" alt="Solar Installation" />
-        <div class="gallery-overlay"><span>Solar Installation</span></div>
-      </div>
-      <div class="gallery-item" data-category="gate">
-        <img src="images/gatemotor.png" alt="Gate Motor" />
-        <div class="gallery-overlay"><span>Gate Motor</span></div>
-      </div>
-      <div class="gallery-item" data-category="gate">
-        <img src="images/garagemotor.png" alt="Garage Motor" />
-        <div class="gallery-overlay"><span>Garage Motor</span></div>
-      </div>
-      <div class="gallery-item" data-category="gate">
-        <img src="images/gate.png" alt="Gates" />
-        <div class="gallery-overlay"><span>Gates</span></div>
-      </div>
-      <div class="gallery-item" data-category="gate">
-        <img src="images/garage.png" alt="Garage" />
-        <div class="gallery-overlay"><span>Garage</span></div>
-      </div>
+    <!-- CCTV -->
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv.jpeg" alt="CCTV Installation" />
+      <div class="gallery-overlay"><span>CCTV Installation</span></div>
     </div>
-  </section>
-
-
-  <!-- MAJOR PROJECTS SECTION -->
-  <section id="projects" class="projects-section">
-    <h2>Major Projects & Experience</h2>
-    <p class="section-subtitle">Selected projects from the Dinoko Automation company profile</p>
-
-    <div class="projects-grid">
-      <article class="project-card">
-        <span class="project-category">Access Control</span>
-        <h3>Lorch Gardens Residential Complex</h3>
-        <p>Design, planning, installation and programming of access control for the residential complex.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">ICT & Perimeter Security</span>
-        <h3>SA Tourism – Bojanala House</h3>
-        <p>Installed 244 network data points and supported ICT operations, with maintenance of two automated sliding gates and the property's electric-fence system.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">ICT & Integrated Security</span>
-        <h3>AUDA-NEPAD</h3>
-        <p>More than five years of ICT and integrated electronic-security management, including access control, boom gates, automated gate motors and CCTV across facilities.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">School Security & ICT</span>
-        <h3>Seritarita Secondary School, Mokopane</h3>
-        <p>Planned, supplied, installed and commissioned CCTV, alarm, intercom and public-address systems for the school.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">Door Automation</span>
-        <h3>Engen Filling Station – Olifantsfontein</h3>
-        <p>Fault-finding, repairs and functional testing of an automatic sliding entrance door, restoring safe and reliable operation.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">Biometric Access Control</span>
-        <h3>KTVR Bus Services</h3>
-        <p>Implemented a contactless biometric access-control system across offices, including the CEO's office, to strengthen controlled access.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">Electric Fence</span>
-        <h3>SC-Johnson Family</h3>
-        <p>Long-term electric-fence repair and maintenance services including inspections, fault-finding, component replacement, fence-line maintenance and performance testing.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">CCTV & Monitoring</span>
-        <h3>Khulula Freight Logistics</h3>
-        <p>Supplied, installed and commissioned CCTV for warehouse and office areas, with an off-site monitoring solution for remote surveillance.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">Door Automation</span>
-        <h3>Eskom Learning Academy</h3>
-        <p>Supplied, installed, configured and commissioned an automated sliding glass entrance door and multiple automated swing doors.</p>
-      </article>
-
-      <article class="project-card">
-        <span class="project-category">Door Automation & Repairs</span>
-        <h3>Eskom Megawatt Park</h3>
-        <p>Delivered automated sliding glass and swing-door systems, plus fault-finding and repairs to an existing automated revolving door.</p>
-      </article>
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv1.jpeg" alt="CCTV Camera" />
+      <div class="gallery-overlay"><span>CCTV Camera</span></div>
     </div>
-  </section>
-
-  <!-- DOCUMENT DOWNLOADS SECTION -->
-  <section id="documents" class="documents-section">
-    <h2>Company Documents</h2>
-    <p class="section-subtitle">Download our company profile and solar product brochures</p>
-
-    <div class="documents-grid">
-      <a class="document-card" href="dinoko-documents/Dinoko_Automation_Company_Profile.pdf" download>
-        <div class="document-icon">📄</div>
-        <div>
-          <h3>Dinoko Automation Company Profile</h3>
-          <p>Company overview, capabilities, industries, major projects, leadership and compliance information.</p>
-          <span class="download-label">Download PDF ↓</span>
-        </div>
-      </a>
-
-      <a class="document-card" href="dinoko-documents/Dinoko_Jinko_Solar_Brochure.pdf" download>
-        <div class="document-icon">☀️</div>
-        <div>
-          <h3>Dinoko Solar – Jinko Solar Brochure</h3>
-          <p>Jinko Solar Tiger Neo 590–610 W panel information and Dinoko Solar solutions.</p>
-          <span class="download-label">Download PDF ↓</span>
-        </div>
-      </a>
-
-      <a class="document-card" href="dinoko-documents/Dinoko_Deye_Hybrid_Brochure.pdf" download>
-        <div class="document-icon">⚡</div>
-        <div>
-          <h3>Dinoko Solar – Deye Hybrid Brochure</h3>
-          <p>Deye 8 kW hybrid inverter information, solution paths and installation support.</p>
-          <span class="download-label">Download PDF ↓</span>
-        </div>
-      </a>
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/cctv2.jpeg" alt="CCTV Setup" />
+      <div class="gallery-overlay"><span>CCTV Setup</span></div>
     </div>
 
-    <p class="documents-note">These documents are publicly accessible from this website. Availability depends on the files being uploaded to the same website hosting account in the <strong>dinoko-documents</strong> folder.</p>
-  </section>
+    <!-- ELECTRIC FENCE -->
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric.jpeg" alt="Electric Fence" />
+      <div class="gallery-overlay"><span>Electric Fence</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric1.jpeg" alt="Electric Fence Installation" />
+      <div class="gallery-overlay"><span>Electric Fence Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric2.jpeg" alt="Fence Wiring" />
+      <div class="gallery-overlay"><span>Fence Wiring</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric3.jpeg" alt="Fence Setup" />
+      <div class="gallery-overlay"><span>Fence Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric4.jpeg" alt="Electric Fence Work" />
+      <div class="gallery-overlay"><span>Electric Fence Work</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric5.jpeg" alt="Fence Installation" />
+      <div class="gallery-overlay"><span>Fence Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="fence">
+      <img src="images/electric6.jpeg" alt="Electric Fence Complete" />
+      <div class="gallery-overlay"><span>Electric Fence Complete</span></div>
+    </div>
+
+    <!-- GATES & MOTORS -->
+    <div class="gallery-item" data-category="gate">
+      <img src="images/garage.jpeg" alt="Garage" />
+      <div class="gallery-overlay"><span>Garage</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate.jpeg" alt="Gate" />
+      <div class="gallery-overlay"><span>Gate</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate1.jpeg" alt="Gate Installation" />
+      <div class="gallery-overlay"><span>Gate Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gate2.jpeg" alt="Gate Setup" />
+      <div class="gallery-overlay"><span>Gate Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gatem.jpeg" alt="Gate Motor" />
+      <div class="gallery-overlay"><span>Gate Motor</span></div>
+    </div>
+    <div class="gallery-item" data-category="gate">
+      <img src="images/gatem1.jpeg" alt="Gate Motor Installation" />
+      <div class="gallery-overlay"><span>Gate Motor Installation</span></div>
+    </div>
+
+    <!-- SOLAR -->
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar.jpeg" alt="Solar Installation" />
+      <div class="gallery-overlay"><span>Solar Installation</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar1.jpeg" alt="Solar Panels" />
+      <div class="gallery-overlay"><span>Solar Panels</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar2.jpeg" alt="Solar Setup" />
+      <div class="gallery-overlay"><span>Solar Setup</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar3.jpeg" alt="Solar System" />
+      <div class="gallery-overlay"><span>Solar System</span></div>
+    </div>
+    <div class="gallery-item" data-category="solar">
+      <img src="images/solar4.jpeg" alt="Solar Complete" />
+      <div class="gallery-overlay"><span>Solar Complete</span></div>
+    </div>
+
+    <!-- AIR CONDITIONING -->
+    <div class="gallery-item" data-category="aircon">
+      <img src="images/air.jpeg" alt="Air Conditioning Installation" />
+      <div class="gallery-overlay"><span>Air Conditioning</span></div>
+    </div>
+
+    <!-- GENERAL / ALL SERVICES PROMO -->
+    <div class="gallery-item" data-category="cctv">
+      <img src="images/all.jpeg" alt="Dinoko Services" />
+      <div class="gallery-overlay"><span>Dinoko Services</span></div>
+    </div>
+
+  </div>
+</section>
 
   <!-- WHY CHOOSE US -->
   <section id="why-us" class="why-us">
@@ -549,7 +501,7 @@
       <form action="https://formsubmit.co/dinokoautomations@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Training Registration - Dinoko" />
         <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="thankyou.html" />
+        <input type="hidden" name="_next" value="https://www.dinokoautomations.co.za/thankyou.html?type=training" />
 
         <div class="form-row">
           <div class="form-group">
@@ -582,6 +534,7 @@
               <option>Access Control Systems</option>
               <option>Electric Fence & Alarm Systems</option>
               <option>Solar System Installation</option>
+              <option>Air Conditioning Installation & Maintenance</option>
             </select>
           </div>
           <div class="form-group">
@@ -800,9 +753,10 @@
       <h3>Send Us an Inquiry</h3>
       <p>Fill in your details below and we will call you back!</p>
       <form action="https://formsubmit.co/dinokoautomations@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Inquiry from Dinoko Website" />
-        <input type="hidden" name="_captcha" value="false" />
-
+  <input type="hidden" name="_subject" value="New Inquiry from Dinoko Website" />
+  <input type="hidden" name="_captcha" value="false" />
+<input type="hidden" name="_next" value="https://www.dinokoautomations.co.za/thankyou.html?type=inquiry" />
+  
         <input type="text" name="name" placeholder="Your Full Name" required />
         <input type="tel" name="phone" placeholder="Your Phone Number" required />
         <select name="service">
@@ -815,6 +769,7 @@
           <option>Garage Motors</option>
           <option>Garages</option>
           <option>Gates</option>
+          <option>Air Conditioning</option>
           <option>Other</option>
         </select>
         <textarea name="inquiry" placeholder="Describe your inquiry or request..." rows="4" required></textarea>
@@ -827,12 +782,12 @@
   <footer>
     <p>Follow us on social media</p>
     <div class="social-links">
-      <a href="https://facebook.com/YourPageName" target="_blank">Facebook</a>
-      <a href="https://instagram.com/YourHandle" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/dinokoautomation/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/Dinokoautomation" target="_blank">Instagram</a>
       <a href="https://wa.me/27737870295" target="_blank">WhatsApp</a>
       <a href="https://tiktok.com/@dinoko22" target="_blank">TikTok</a>
     </div>
-    <p class="footer-copy">&copy; 2025 Dinoko Automation Services and Repairs. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2015 Dinoko Automation Services and Repairs. All rights reserved.</p>
   </footer>
 
   <!-- FLOATING WHATSAPP BUTTON -->
